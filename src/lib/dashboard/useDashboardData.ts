@@ -41,7 +41,7 @@ export function useDashboardData() {
     setState((s) => ({ ...s, loading: true, error: null, sheetUrl: url }));
     try {
       // Chama a nova API do Backend
-      const res = await fetch("http://localhost:3001/api/v1/dashboard/sync", {
+      const res = await fetch("/api/dashboard/sync", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),

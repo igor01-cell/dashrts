@@ -22,7 +22,7 @@ export function useProductivityData() {
     setState((s) => ({ ...s, loading: true, error: null }));
     try {
       const url = getSheetUrl();
-      const res = await fetch("http://localhost:3001/api/v1/dashboard/productivity", {
+      const res = await fetch("/api/dashboard/productivity", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
