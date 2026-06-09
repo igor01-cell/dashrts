@@ -1,0 +1,345 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Shopee RTS Executive Dashboard — Design System
+ * Dark mode, Shopee orange accent, glassmorphism, glow.
+ */
+
+@theme inline {
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-blue-glow: var(--accent-blue-glow);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ────────── LIGHT MODE (padrão quando .dark não está aplicada) ────────── */
+:root {
+  --radius: 0.875rem;
+
+  /* Fundos claros e quentes */
+  --background: oklch(0.985 0.003 60);
+  --foreground: oklch(0.18 0.012 30);
+
+  --card: oklch(1 0 0 / 0.85);
+  --card-foreground: oklch(0.18 0.012 30);
+  --popover: oklch(0.99 0.003 60);
+  --popover-foreground: oklch(0.18 0.012 30);
+
+  /* Shopee orange mantido como acento principal */
+  --primary: oklch(0.64 0.22 32);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.72 0.20 38);
+
+  --secondary: oklch(0.95 0.008 60);
+  --secondary-foreground: oklch(0.18 0.012 30);
+
+  --muted: oklch(0.94 0.008 60);
+  --muted-foreground: oklch(0.42 0.015 45);
+
+  --accent: oklch(0.64 0.22 32 / 0.12);
+  --accent-foreground: oklch(0.30 0.12 32);
+
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --success: oklch(0.55 0.16 155);
+  --success-foreground: oklch(0.99 0 0);
+
+  --warning: oklch(0.65 0.16 70);
+  --warning-foreground: oklch(0.10 0 0);
+
+  --info: oklch(0.55 0.14 230);
+  --info-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.18 0.012 30 / 0.12);
+  --input: oklch(0.18 0.012 30 / 0.10);
+  --ring: oklch(0.64 0.22 32 / 0.5);
+
+  --chart-1: oklch(0.64 0.22 32);
+  --chart-2: oklch(0.55 0.20 245);
+  --chart-3: oklch(0.62 0.16 230);
+  --chart-4: oklch(0.70 0.16 70);
+  --chart-5: oklch(0.55 0.16 155);
+
+  --accent-blue: oklch(0.62 0.16 230);
+  --accent-blue-glow: oklch(0.72 0.13 220);
+
+  --sidebar: oklch(0.97 0.005 60);
+  --sidebar-foreground: oklch(0.20 0.012 30);
+  --sidebar-primary: oklch(0.64 0.22 32);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.93 0.008 60);
+  --sidebar-accent-foreground: oklch(0.20 0.012 30);
+  --sidebar-border: oklch(0.18 0.012 30 / 0.10);
+  --sidebar-ring: oklch(0.64 0.22 32 / 0.5);
+
+  --gradient-primary: linear-gradient(135deg, oklch(0.64 0.22 32), oklch(0.72 0.20 38));
+  --gradient-bg: radial-gradient(
+      ellipse at top left,
+      oklch(0.64 0.22 32 / 0.10),
+      transparent 55%
+    ),
+    radial-gradient(ellipse at bottom right, oklch(0.62 0.16 230 / 0.08), transparent 60%),
+    linear-gradient(180deg, oklch(0.985 0.003 60), oklch(0.95 0.005 60));
+  --gradient-card: linear-gradient(
+    135deg,
+    oklch(1 0 0 / 0.85),
+    oklch(0.98 0.005 60 / 0.65)
+  );
+
+  --shadow-glow: 0 0 28px oklch(0.64 0.22 32 / 0.25),
+    0 0 56px oklch(0.64 0.22 32 / 0.12);
+  --shadow-card: 0 4px 16px oklch(0.18 0.012 30 / 0.10),
+    0 1px 0 oklch(1 0 0 / 0.5) inset;
+  --shadow-elevated: 0 12px 36px oklch(0.18 0.012 30 / 0.14),
+    0 1px 0 oklch(1 0 0 / 0.6) inset;
+}
+
+/* ────────── DARK MODE ────────── */
+.dark {
+  --radius: 0.875rem;
+
+  /* Deep charcoal blacks */
+  --background: oklch(0.14 0.012 30);
+  --foreground: oklch(0.98 0.005 60);
+
+  --card: oklch(0.18 0.014 30 / 0.65);
+  --card-foreground: oklch(0.98 0.005 60);
+  --popover: oklch(0.16 0.013 30);
+  --popover-foreground: oklch(0.98 0.005 60);
+
+  /* Shopee orange #EE4D2D ≈ oklch(0.65 0.21 32) */
+  --primary: oklch(0.66 0.22 32);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.74 0.20 38);
+
+  --secondary: oklch(0.22 0.014 30);
+  --secondary-foreground: oklch(0.98 0.005 60);
+
+  --muted: oklch(0.22 0.012 30);
+  --muted-foreground: oklch(0.68 0.015 45);
+
+  --accent: oklch(0.66 0.22 32 / 0.18);
+  --accent-foreground: oklch(0.99 0 0);
+
+  --destructive: oklch(0.62 0.24 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --success: oklch(0.70 0.17 155);
+  --success-foreground: oklch(0.10 0 0);
+
+  --warning: oklch(0.80 0.16 85);
+  --warning-foreground: oklch(0.10 0 0);
+
+  --info: oklch(0.70 0.14 230);
+  --info-foreground: oklch(0.10 0 0);
+
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.10);
+  --ring: oklch(0.66 0.22 32 / 0.6);
+
+  --chart-1: oklch(0.66 0.22 32);    /* shopee orange (primary) */
+  --chart-2: oklch(0.65 0.20 245);   /* EHA blue */
+  --chart-3: oklch(0.72 0.16 230);   /* accent blue */
+  --chart-4: oklch(0.80 0.16 85);    /* warning amber */
+  --chart-5: oklch(0.70 0.17 155);   /* success green */
+
+  /* Secondary accent (cyan/blue) for charts and informational highlights */
+  --accent-blue: oklch(0.72 0.16 230);
+  --accent-blue-glow: oklch(0.80 0.13 220);
+
+  --sidebar: oklch(0.12 0.012 30);
+  --sidebar-foreground: oklch(0.96 0.005 60);
+  --sidebar-primary: oklch(0.66 0.22 32);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.20 0.014 30);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(1 0 0 / 0.06);
+  --sidebar-ring: oklch(0.66 0.22 32 / 0.6);
+
+  /* Gradients & shadows */
+  --gradient-primary: linear-gradient(135deg, oklch(0.66 0.22 32), oklch(0.74 0.20 38));
+  --gradient-bg: radial-gradient(
+      ellipse at top left,
+      oklch(0.66 0.22 32 / 0.18),
+      transparent 55%
+    ),
+    radial-gradient(ellipse at bottom right, oklch(0.66 0.22 32 / 0.10), transparent 60%),
+    linear-gradient(180deg, oklch(0.13 0.012 30), oklch(0.10 0.010 30));
+  --gradient-card: linear-gradient(
+    135deg,
+    oklch(0.20 0.014 30 / 0.55),
+    oklch(0.16 0.012 30 / 0.35)
+  );
+
+  --shadow-glow: 0 0 32px oklch(0.66 0.22 32 / 0.35),
+    0 0 64px oklch(0.66 0.22 32 / 0.18);
+  --shadow-card: 0 8px 24px oklch(0 0 0 / 0.45),
+    0 1px 0 oklch(1 0 0 / 0.04) inset;
+  --shadow-elevated: 0 16px 48px oklch(0 0 0 / 0.55),
+    0 1px 0 oklch(1 0 0 / 0.06) inset;
+}
+
+/* Inter font is loaded via <link> in the document head (see __root.tsx). */
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: oklch(0.66 0.22 32 / 0.4);
+    color: white;
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--gradient-card);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-elevated {
+    background: var(--gradient-card);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid oklch(1 0 0 / 0.10);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .ring-glow {
+    box-shadow: 0 0 0 1px oklch(0.66 0.22 32 / 0.5),
+      0 0 24px oklch(0.66 0.22 32 / 0.35);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 16px oklch(0.62 0.24 25 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 28px oklch(0.62 0.24 25 / 0.85);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.66 0.22 32 / 0.5) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: oklch(0.66 0.22 32 / 0.4);
+    border-radius: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.66 0.22 32 / 0.6);
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(0.66 0.22 32 / 0.15),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+}
