@@ -1,14 +1,17 @@
-// Configuração nativa do TanStack Start com preset Vercel
-// Substitui o @lovable.dev/vite-tanstack-config que era específico para Cloudflare
-import { defineConfig } from "@tanstack/react-start/plugin/vite";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
-  server: {
-    preset: "vercel",
-  },
-  vite: {
-    plugins: [tsConfigPaths(), tailwindcss()],
-  },
+  plugins: [
+    TanStackRouterVite({
+      routesDirectory: "./src/routes",
+      generatedRouteTree: "./src/routeTree.gen.ts",
+    }),
+    react(),
+    tailwindcss(),
+    tsConfigPaths(),
+  ],
 });
