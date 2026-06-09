@@ -1,4 +1,0 @@
-{
-  "buildCommand": "SERVER_PRESET=vercel npm run build",
-  "framework": null
-}
